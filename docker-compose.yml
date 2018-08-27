@@ -1,10 +1,10 @@
 version: "3.0"
 services:
-  app:
-    container_name: expresssample
-    restart: always
-    ports:
-      - "80:3000"
-    image: app
-    deploy: 
-     	replicas: 3
+ app:
+  container_name: expresssample
+  restart: always
+  ports:
+   - "80:3000"
+  image: app
+  deploy: 
+   replicas: 3
