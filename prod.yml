@@ -1,0 +1,9 @@
+version: "3.0"
+services:
+ app:
+  restart: always
+  ports:
+   - "8080:3000"
+  image: sunilmore690/express-app:latest
+  deploy:
+   replicas: 3
