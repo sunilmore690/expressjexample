@@ -1,0 +1,26 @@
+pipeline {
+  agent any
+  stages {
+    stage('Cloning') {
+      steps {
+        checkout scm
+      }
+    }
+    stage('Building') {
+      steps{
+        script {
+          dockerImage = docker.build "sunilmore690/express-app:${env.BUILD_ID}"
+        }
+      }
+    }
+    stage('Pushing') {
+      steps{
+        script {
+          docker.withRegistry( '', 'jenkinsdockerhubcred' ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }    
+  }
+}
