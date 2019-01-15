@@ -25,7 +25,7 @@ pipeline {
           println "==================="
           docker.withRegistry( '', 'jenkinsdockerhubcred' ) {
             println "Image Pushed"
-            dockerImage.push("${env.BUILD_NUMBER}")
+            dockerImage.push("${env.GIT_COMMIT}")
             dockerImage.push("${env.BRANCH_NAME}")
           }
         }
