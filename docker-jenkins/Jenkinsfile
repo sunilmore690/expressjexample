@@ -10,7 +10,7 @@ pipeline {
       steps{
         script {
           println "==================="
-          println "Building image"+env.BUILD_NUMBER
+          println "Building image"+env.BRANCH_NAME
           println "==================="
           dockerImage = docker.build("sunilmore690/express-app")
 
@@ -26,7 +26,7 @@ pipeline {
           docker.withRegistry( '', 'jenkinsdockerhubcred' ) {
             println "Image Pushed"
             dockerImage.push("${env.BUILD_NUMBER}")
-            dockerImage.push("latest")
+            dockerImage.push("${env.BRANCH_NAME}")
           }
         }
       }
