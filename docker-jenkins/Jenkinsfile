@@ -9,7 +9,7 @@ pipeline {
     stage('Building') {
       steps{
         script {
-          println "Building image"+${env.BRANCH_NAME}
+          println "Building image"
           dockerImage = docker.build("sunilmore690/express-app")
 
         }
