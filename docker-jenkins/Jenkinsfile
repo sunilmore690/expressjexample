@@ -23,7 +23,7 @@ pipeline {
          script {
             docker.withRegistry( '', registryCredential ) {
             dockerImage.push("${BUILD_NUMBER}");
-            dockerImage.push("${BRANCH_NAME}")
+            dockerImage.push("${env.BRANCH_NAME}")
           }
         }
       }
